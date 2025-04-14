@@ -2,6 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+package part_1;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -10,7 +15,7 @@
 public class Registration extends javax.swing.JFrame {
 
     /**
-     * Creates new form NewJFrame
+     * Creates new form Registration
      */
     public Registration() {
         initComponents();
@@ -29,38 +34,48 @@ public class Registration extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         txt_username = new javax.swing.JTextField();
-        txt_FirstName = new javax.swing.JTextField();
-        txt_LastName = new javax.swing.JTextField();
-        btn_Register = new javax.swing.JButton();
+        txt_firstname = new javax.swing.JTextField();
+        txt_cellphonnumber = new javax.swing.JTextField();
         txt_password = new javax.swing.JPasswordField();
+        txt_lastname = new javax.swing.JTextField();
+        btn_submit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Username:");
+        jLabel1.setText("username");
 
-        jLabel2.setText("First name:");
+        jLabel2.setText("Firstname");
 
-        jLabel3.setText("Last name:");
+        jLabel3.setText("lastname");
 
-        jLabel4.setText("Password:");
+        jLabel4.setText("cellphone number");
 
-        txt_username.addActionListener(new java.awt.event.ActionListener() {
+        jLabel5.setText("Password");
+
+        txt_cellphonnumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_usernameActionPerformed(evt);
+                txt_cellphonnumberActionPerformed(evt);
             }
         });
 
-        txt_LastName.addActionListener(new java.awt.event.ActionListener() {
+        txt_password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_LastNameActionPerformed(evt);
+                txt_passwordActionPerformed(evt);
             }
         });
 
-        btn_Register.setText("Register");
-        btn_Register.addActionListener(new java.awt.event.ActionListener() {
+        txt_lastname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_RegisterActionPerformed(evt);
+                txt_lastnameActionPerformed(evt);
+            }
+        });
+
+        btn_submit.setText("submit");
+        btn_submit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_submitActionPerformed(evt);
             }
         });
 
@@ -69,62 +84,75 @@ public class Registration extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txt_username, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-                    .addComponent(txt_FirstName)
-                    .addComponent(txt_LastName)
-                    .addComponent(txt_password))
-                .addGap(28, 28, 28))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGap(101, 101, 101)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(txt_password)
+                        .addComponent(txt_cellphonnumber)
+                        .addComponent(txt_username))
+                    .addComponent(txt_lastname, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_firstname, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(150, 150, 150))
             .addGroup(layout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addComponent(btn_Register)
-                .addContainerGap(192, Short.MAX_VALUE))
+                .addGap(134, 134, 134)
+                .addComponent(btn_submit)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txt_username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(txt_FirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_firstname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txt_LastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_lastname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
+                    .addComponent(txt_cellphonnumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
                     .addComponent(txt_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59)
-                .addComponent(btn_Register)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(btn_submit)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RegisterActionPerformed
+    private void txt_cellphonnumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cellphonnumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn_RegisterActionPerformed
+    }//GEN-LAST:event_txt_cellphonnumberActionPerformed
 
-    private void txt_usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_usernameActionPerformed
+    private void txt_lastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_lastnameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_usernameActionPerformed
+    }//GEN-LAST:event_txt_lastnameActionPerformed
 
-    private void txt_LastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_LastNameActionPerformed
+    private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_LastNameActionPerformed
+    }//GEN-LAST:event_txt_passwordActionPerformed
+
+    private void btn_submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_submitActionPerformed
+                                          
+     handleRegistration();
+     
+    }//GEN-LAST:event_btn_submitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,7 +180,6 @@ public class Registration extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Registration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -163,14 +190,78 @@ public class Registration extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_Register;
+    private javax.swing.JButton btn_submit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField txt_FirstName;
-    private javax.swing.JTextField txt_LastName;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField txt_cellphonnumber;
+    private javax.swing.JTextField txt_firstname;
+    private javax.swing.JTextField txt_lastname;
     private javax.swing.JPasswordField txt_password;
     private javax.swing.JTextField txt_username;
     // End of variables declaration//GEN-END:variables
+
+    private void handleRegistration() {
+    String username = txt_username.getText().trim();
+    String cellPhoneNumber = txt_cellphonnumber.getText().trim();
+    String password = new String(txt_password.getPassword()).trim();
+    String firstName = txt_firstname.getText().trim();
+    String lastName = txt_lastname.getText().trim();
+
+    String registrationMessage = registerUser(username, password, cellPhoneNumber, firstName, lastName);
+    JOptionPane.showMessageDialog(this, registrationMessage, "Registration Status", JOptionPane.INFORMATION_MESSAGE);
+
+    if (registrationMessage.equals("Registration successful!")) {
+        // Optional: Save to file or move to login screen
+        dispose(); // Close registration window
+        System.out.println("Stored username = " + username + "  #  Stored Password = " + password);
+        // After confirming all fields are valid
+try {
+    FileWriter writer = new FileWriter("users.txt");
+    writer.write(username + "," + password);  // save username and password separated by comma
+    writer.close();
+    System.out.println("Stored username: " + username + " | Stored password: " + password);
+} catch (IOException e) {
+    System.out.println("Error writing to file: " + e.getMessage());
+}
+
+    }
+}
+
+private String registerUser(String username, String password, String cellPhoneNumber, String firstName, String lastName) {
+    if (!checkUserName(username)) {
+        return "Username must contain an underscore (_) and be no more than 5 characters long.";
+    }
+
+    if (!checkPasswordComplexity(password)) {
+        return "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one digit, and one special character.";
+    }
+
+    if (!isCellPhoneValid(cellPhoneNumber)) {
+        return "Cell number is incorrectly formatted or does not contain an international code. Please correct the number and try again.";
+    }
+
+    // Registration successful
+    return "Registration successful!";
+}
+
+   // Check if username contains an underscore and is no longer than 5 characters
+public static boolean checkUserName(String username) {
+    return username.contains("_") && username.length() <= 5;
+}
+
+// Check password complexity using regex
+public static boolean checkPasswordComplexity(String password) {
+    return password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
+}
+
+// Validate SA/local/international phone format
+
+public static boolean isCellPhoneValid(String number) {
+    // Allows +27xxxxxxxxx (must be 10 digits total after +27 )
+    return number.matches("^(\\+27\\d{9}|0\\d{9})$");
+}
+
 }

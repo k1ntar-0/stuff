@@ -1,30 +1,25 @@
 
 package part_1;
+import javax.swing.JFrame;
+import part_1.Registration;
+
+
 
 /**
- *Student name: Ndaedzo tshiovhe
+ *Student name: Ndaedzo Tshiovhe
  * Student number: ST 10487456
  * Assignment part 1
  * 
  * @author User
  */
+
+
 public class Part_1 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-       Registration registration = new Registration();
-
-    }
-
-    static class NewJFrame {
-
-        public NewJFrame() {
-        }
-    }
-    }
-        
-        
-        
-   
+    // Code to launch your application
+    Registration registration = new Registration();
+    Login login = new Login();
+    login.setVisible(true);
+}
+}
